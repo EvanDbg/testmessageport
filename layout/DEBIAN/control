@@ -1,0 +1,9 @@
+Package: com.yourcompany.testmessageport
+Name: testmessageport
+Depends: firmware (>= 8.0), mobilesubstrate, com.rpetrich.rocketbootstrap (>= 1.0.2)
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak!
+Maintainer: Mike
+Author: Mike
+Section: Tweaks
