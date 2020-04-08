@@ -12,6 +12,10 @@ static void pressHome() {
     [((SpringBoard *)[%c(SpringBoard) sharedApplication]) _simulateHomeButtonPress];
 }
 
+static void pressLock() {
+    [((SpringBoard *)[%c(SpringBoard) sharedApplication]) _simulateLockButtonPress];
+}
+
 %hook SpringBoard
 
 - (void)applicationDidFinishLaunching:(id)application {
@@ -28,6 +32,14 @@ static void pressHome() {
             NULL,
             (CFNotificationCallback)pressHome,
             (CFStringRef)@"fun.yfyf/pressHome",
+            NULL,
+            CFNotificationSuspensionBehaviorCoalesce);
+
+   CFNotificationCenterAddObserver(
+            CFNotificationCenterGetDarwinNotifyCenter(),
+            NULL,
+            (CFNotificationCallback)pressLock,
+            (CFStringRef)@"fun.yfyf/pressLock",
             NULL,
             CFNotificationSuspensionBehaviorCoalesce);
 }
